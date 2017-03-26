@@ -1,0 +1,10 @@
+{
+  "name": "open-bot-cli",
+  "private": true,
+  "version": "0.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "prompt": "^1.0.0"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "open-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/open-bot/open-bot.js",
+  "bin": "lib/open-bot-cli/open-bot.js",
+  "scripts": {
+    "sync-dependencies": "node scripts/sync-dependencies",
+    "install": "node scripts/for-each-package yarn",
+    "deploy-dev": "serverless deploy",
+    "deploy-prod": "serverless deploy --stage production"
+  },
+  "author": "Tobias Koppers @sokra",
+  "license": "MIT",
+  "dependencies": {
+    "clone": "^2.1.1",
+    "duration-js": "^3.9.2",
+    "github": "^9.2.0",
+    "handlebars": "^4.0.6",
+    "js-yaml": "^3.8.2",
+    "minimist": "^1.2.0",
+    "mkdirp": "^0.5.1",
+    "promise-queue": "^2.2.3",
+    "prompt": "^1.0.0",
+    "serverless": "^1.9.0",
+    "serverless-offline": "^3.13.1",
+    "sync-exec": "^0.6.2"
+  }
+}
