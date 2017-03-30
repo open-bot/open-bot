@@ -374,3 +374,82 @@ Note: See github api documentation for full object details.
 `{{quote comment.body}}`: Wraps value in `>` to make it a markdown quote.
 
 `{{stringify comment}}`: JSON.stringify the value.
+
+## Examples
+
+``` yaml
+- filters: # Look for a comment
+    comment: Hello
+  actions: # Post a new comment
+    comment: Hello @{{comment.actor.login}}.
+```
+
+Respond to any comment containing "Hello" with a comment "Hello @user.".
+
+``` yaml
+- filters:
+    open: true
+    status: # Look for the latest travis results
+      context: "continuous-integration/travis-ci/pr"
+    ensure: # Check travis state
+      value: "{{status.state}}"
+      equals: "success"
+  actions:
+    label: # relabel
+      add: "ci-ok"
+      remove: "ci-not-ok"
+    comment: # post comment
+      identifier: "ci-result"
+      readd: true
+      message: |-
+        Success! :smile:
+- filters:
+    open: true
+    status:
+      context: "continuous-integration/travis-ci/pr"
+    ensure:
+      value: "{{status.state}}"
+      equals: "failure"
+  actions:
+    label:
+      add: "ci-not-ok"
+      remove: "ci-ok"
+    comment:
+      identifier: "ci-result"
+      readd: true
+      message: |-
+        Failed. @{{issue.user.login}} Check [CI results]({{status.target_url}})!
+```
+
+Label pull request with `ci-ok` or `ci-not-ok` depending on the CI result. Also comment on the pull request to trigger the user.
+
+``` yaml
+- filters:
+    open: true
+    threshold:
+      maximum: 1
+      filters:
+        issue_1: Type
+        issue_2: Expected
+        issue_3: Current
+  actions:
+    label: missing-infomation
+    close: true
+    comment: Closed because information is missing. Edit the issue!
+- filters:
+    open: false
+    label: missing-infomation
+    threshold:
+      minimum: 2
+      filters:
+        issue_1: Type
+        issue_2: Expected
+        issue_3: Current
+  actions:
+    label:
+      remove: missing-infomation
+    reopen: true
+    comment: Thanks!
+```
+
+Require at least two of `Type` `Expected` and `Current` in the issue. Elsewise close the issue and comment. Reopens when information is added later.
