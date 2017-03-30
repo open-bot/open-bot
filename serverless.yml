@@ -27,6 +27,7 @@ package:
 functions:
   processIssue:
     handler: handlers.processIssue
+    timeout: 30
     package:
       include:
         - lib/open-bot-process-issue/**
