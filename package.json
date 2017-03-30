@@ -7,7 +7,7 @@
   "scripts": {
     "sync-dependencies": "node scripts/sync-dependencies",
     "install": "node scripts/for-each-package yarn",
-    "deploy-dev": "serverless deploy",
+    "deploy-dev": "serverless deploy --stage dev",
     "deploy-prod": "serverless deploy --stage production"
   },
   "author": "Tobias Koppers @sokra",
