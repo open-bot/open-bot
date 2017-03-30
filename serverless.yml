@@ -33,7 +33,7 @@ functions:
         - lib/open-bot/**
         - config.json
     events:
-      - sns: processIssue
+      - sns: open-bot-${opt:stage}-processIssue
   handleGithubEvent:
     handler: handlers.handleGithubEvent
     package:
@@ -41,6 +41,8 @@ functions:
         - lib/open-bot-handle-github-event/**
         - lib/open-bot/**
         - config.json
+    environment:
+      STAGE: "${opt:stage}"
     events:
       - http:
           path: github
