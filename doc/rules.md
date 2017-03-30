@@ -21,8 +21,6 @@ There are many filters available. If you miss one, send a PR.
 
 ### commit
 
-Matches a commit in a PR.
-
 ``` yaml
 commit: true
 ```
@@ -37,6 +35,8 @@ commit:
   author: ab?c # author github login
   committer: ab?c # committer github login
 ```
+
+Matches a commit in a PR.
 
 ### comment
 
@@ -53,6 +53,8 @@ comment:
   matching: ab?c # comment body
   author: ab?c # comment author
 ```
+
+Matches a comment in a issue/PR.
 
 ### label
 
@@ -74,6 +76,8 @@ label:
   labelRegExp: ab?c # label name regexp
 ```
 
+Matches a label in a issue/PR.
+
 ### issue
 
 ``` yaml
@@ -90,6 +94,10 @@ issue:
   author: ab?c # issue author
 ```
 
+Matches the issue content.
+
+Note: Doesn't match pull request.
+
 ### open
 
 ``` yaml
@@ -99,6 +107,8 @@ open: true # issue/PR is open
 ``` yaml
 open: false # issue/PR is not open
 ```
+
+Matches if the state of the issue is open/closed.
 
 ### number_of_comments
 
@@ -111,6 +121,8 @@ number_of_comments: # 3 - 6 comments in issue/PR
   minimum: 3
   maximum: 6
 ```
+
+Matches the number of comments in a issue/PR.
 
 ### review
 
@@ -130,6 +142,8 @@ review:
   upToDate: true # review is on latest commit
 ```
 
+Matches a pull request review.
+
 ### status
 
 ``` yaml
@@ -142,6 +156,8 @@ status:
   state: ab?c # status state (success, failure, error, pending)
   context: ab?c # status context
 ```
+
+Matches the pull request status reported i. e. by CI.
 
 ### age
 
@@ -157,6 +173,8 @@ age:
   maximumDate: 2016-12-31 # created in 2016
 ```
 
+Matches if the issue/PR age is in the range.
+
 ### last_action_age
 
 ``` yaml
@@ -171,6 +189,8 @@ last_action_age:
   maximumDate: 2016-12-31
 ```
 
+Matches if the last action age is in the range.
+
 ### ensure
 
 ``` yaml
@@ -179,6 +199,8 @@ ensure:
   matching: ab?c # matches this regexp
   equals: abc # is equal to
 ```
+
+Matches if the condition is true.
 
 ### any
 
