@@ -26,10 +26,10 @@ This means: It makes sure that actions runs once **after** filters match. If fil
 
 * Clone the repo
 * Run `yarn`
-* Run `node lib/open-bot-cli/open-bot configurate` and answer questions
+* Run `node open-bot configurate` and answer questions
 * Run `yarn run deploy-prod` to deploy the bot (takes a while)
   * Note you need to have AWS CLI tools installed and configurated
-* Run `node lib/open-bot-cli/open-bot` to gain access to the other tools, i. e. batch processing
+* Run `node open-bot` to gain access to the other tools, i. e. batch processing
 
 ## Contributing
 
@@ -37,7 +37,7 @@ This means: It makes sure that actions runs once **after** filters match. If fil
 
 * Add a file in the folder
 * Edit the index.js file
-* Test it locally with `node lib/open-bot-cli/open-bot process some/repo#123 --settings open-bot.yaml --simulate`
+* Test it locally with `node open-bot process some/repo#123 --settings open-bot.yaml --simulate`
 * Send a PR
 
 ## License
