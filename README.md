@@ -42,4 +42,6 @@ This means: It makes sure that actions runs once **after** filters match. If fil
 
 ## License
 
-MIT
+Free for open-source projects.
+
+Get in contact with me if you want to use it for private repos.
