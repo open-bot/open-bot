@@ -311,14 +311,16 @@ comment: Hello @{{issue.user.login}}!
 comment:
   message: Hello @{{issue.user.login}}!
   identifier: comment-label
-  readd: true
+  edit: true
 ```
 
 Adds a comment.
 
-If `identifier` is provided is add or edits an comment with this identifier.
+If `identifier` is provided it removes an old comment with the same identifier.
 
-If `readd` is `true` it will move the comment to the bottom of the thread and sends notifications. It removes the old comment and adds a new one.
+If `edit` is `true` it will edit the old comment instead will the new message.
+
+If `message` is empty or undefined it will not add a new comment. It may remove an old comment if `identifer` is set.
 
 ### status
 
