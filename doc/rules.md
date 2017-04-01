@@ -214,6 +214,18 @@ Matches if any of the children match.
 
 Here: Has a comment or is older than 4 weeks.
 
+### all
+
+``` yaml
+all:
+  comment: true
+  age: 4w
+```
+
+Matches if all of the children match.
+
+Here: Has a comment and is older than 4 weeks.
+
 ### not
 
 ``` yaml
