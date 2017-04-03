@@ -91,12 +91,43 @@ issue: ab?c # issue body
 ``` yaml
 issue:
   matching: ab?c # issue body
+  title: ab?c # issue title
   author: ab?c # issue author
+  locked: true # issue is locked or not
 ```
 
-Matches the issue content.
+Matches an issue.
 
 Note: Doesn't match pull request.
+
+### pull_request
+
+``` yaml
+pull_request: true
+```
+
+``` yaml
+pull_request ab?c # pull request body
+```
+
+``` yaml
+pull_request:
+  matching: ab?c # pull request body
+  title: ab?c # pull request title
+  author: ab?c # pull request author
+  locked: true # pull request is locked or not
+  merged: true # pull request is merged or not
+  mergeable: true # pull request is mergeable or not
+  merged_by: ab?c # login of person who merged the PR
+  head_ref: ab?c # branchname of PR source
+  base_ref: ab?c # branchname of PR target
+  mergeable_state: ab?c # state of the PR
+    # one of: clean, dirty, blocked, stable, unstable, unknown
+```
+
+Matches a pull request.
+
+Note: Doesn't match issue.
 
 ### open
 
@@ -197,7 +228,10 @@ Matches if the last action age is in the range.
 ensure:
   value: "{{comment.actor.login}}" # a value (see interpolation)
   matching: ab?c # matches this regexp
-  equals: abc # is equal to
+  notMatching: ab?c # doesn't match this regexp
+  equals: abc # is equal to (interpolation possible)
+  notEquals: abc # is not equal to (interpolation possible)
+  range: "< 10, 15 - 20" # is in this range (see range)
 ```
 
 Matches if the condition is true.
@@ -345,6 +379,21 @@ status:
 ```
 
 Reports a pull request status.
+
+## Range
+
+Some expressions accept ranges. Example:
+
+``` text
+< 10 > 5, 15-20
+```
+
+Means: (smaller than 10 and bigger than 5) or between 15 and 20 (inclusive)
+
+``` js
+// in javascript
+(x < 10 && x > 5) || (x >= 5 && x <= 20)
+```
 
 ## Interpolation
 
