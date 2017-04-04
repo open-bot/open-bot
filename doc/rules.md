@@ -206,6 +206,18 @@ age:
 
 Matches if the issue/PR age is in the range.
 
+
+``` yaml
+age:
+  value: "{{comment.created_at}}"
+  minimum: 6h
+  maximum: 4d # 6 hours - 4 days old
+  minimumDate: 2016-01-01
+  maximumDate: 2016-12-31 # created in 2016
+```
+
+Matches if the provided date value is in the range.
+
 ### last_action_age
 
 ``` yaml
