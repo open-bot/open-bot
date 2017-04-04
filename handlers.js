@@ -1,5 +1,5 @@
 const handlers = [
-	"process-issue",
+	"process-tasks",
 	"handle-github-event"
 ];
 

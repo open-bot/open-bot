@@ -13,6 +13,10 @@ provider:
       Resource: "*"
       Action:
         - "sns:*"
+    - Effect: "Allow"
+      Action:
+        - "*"
+      Resource: "arn:aws:dynamodb:us-east-1:*:table/open-bot-${opt:stage}-queue"
 
 plugins:
   - serverless-offline
@@ -25,16 +29,25 @@ package:
     - handlers.js
 
 functions:
-  processIssue:
-    handler: handlers.processIssue
-    timeout: 30
+  processTasks:
+    handler: handlers.processTasks
+    timeout: 120
     package:
       include:
-        - lib/open-bot-process-issue/**
+        - lib/open-bot-process-tasks/**
         - lib/open-bot/**
         - config.json
+    environment:
+      STAGE: "${opt:stage}"
     events:
-      - sns: open-bot-${opt:stage}-processIssue
+      - stream:
+          type: dynamodb
+          batchSize: 20
+          startingPosition: TRIM_HORIZON
+          arn:
+            Fn::GetAtt:
+              - QueueDynamoDbTable
+              - StreamArn
   handleGithubEvent:
     handler: handlers.handleGithubEvent
     package:
@@ -49,5 +62,25 @@ functions:
           path: github
           method: POST
           timeout: 20
+resources:
+  Resources:
+    QueueDynamoDbTable:
+      Type: "AWS::DynamoDB::Table"
+      DeletionPolicy: Delete
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: item
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: item
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        StreamSpecification:
+          StreamViewType: NEW_IMAGE
+        TableName: "open-bot-${opt:stage}-queue"
 
 
