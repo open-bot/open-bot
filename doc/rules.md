@@ -357,12 +357,17 @@ comment: Hello @{{issue.user.login}}!
 comment:
   message: Hello @{{issue.user.login}}!
   identifier: comment-label
+  invasive: true
   edit: true
 ```
 
 Adds a comment.
 
 If `identifier` is provided it removes an old comment with the same identifier.
+
+If `invasive` is set it resent the comment even if the body is equal.
+
+`invasive` defaults to `false` if `identifier` is set and to `true` otherwise.
 
 If `edit` is `true` it will edit the old comment instead will the new message.
 
