@@ -56,6 +56,10 @@ comment:
 
 Matches a comment in a issue/PR.
 
+Makes the comment info accessible via data.
+
+If `matching` is a regular expression, it also makes the match accessible via data with `_match` prefix.
+
 ### label
 
 ``` yaml
