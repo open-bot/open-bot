@@ -188,7 +188,23 @@ status:
   context: ab?c # status context
 ```
 
-Matches the pull request status reported i. e. by CI.
+### permission
+
+``` yaml
+permission: true # issue creator has write or admin permission
+```
+
+``` yaml
+permission: ab?c # issue creator permission level (admin, write, read, none)
+```
+
+``` yaml
+permission:
+  user: "{{comment.actor.login}}" # user to review permission for
+  matching: ab?c # permission level (admin, write, read, none)
+```
+
+Matches if the permission level of the user matches the regular expression.
 
 ### age
 
