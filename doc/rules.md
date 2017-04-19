@@ -111,7 +111,7 @@ pull_request: true
 ```
 
 ``` yaml
-pull_request ab?c # pull request body
+pull_request: ab?c # pull request body
 ```
 
 ``` yaml
