@@ -1,6 +1,7 @@
 const handlers = [
 	"process-tasks",
-	"handle-github-event"
+	"handle-github-event",
+	"process-scheduled-tasks"
 ];
 
 handlers.forEach(name => {

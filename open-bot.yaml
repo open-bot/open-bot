@@ -1,0 +1,32 @@
+bot: webpack-bot
+rules:
+- filters:
+    commit: true
+    status:
+      context: "continuous-integration/travis-ci/pr"
+    travis_job:
+      state: "failed"
+      config:
+        env: JOB_PART=test
+    fetch: travis_job.log
+    string_cleanup:
+      id: logResult
+      value: "{{{fetch}}}"
+      remove:
+        - "^[\\s\\S]+?\\d+\\s+pending\n+"
+        - "npm ERR!.*\n"
+        - "\n*=============================================================================\n[\\s\\S]*"
+  actions:
+    comment:
+      identifier: "ci-result"
+      message: |-
+        @{{commit.author.login}} Please review the following output log for errors:
+
+        ``` text
+        {{{logResult}}}
+        ```
+
+        See [complete report here]({{status.target_url}}).
+    set:
+      id: report_ci
+      value: nope

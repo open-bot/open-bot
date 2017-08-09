@@ -17,6 +17,12 @@ provider:
       Action:
         - "*"
       Resource: "arn:aws:dynamodb:us-east-1:*:table/open-bot-${opt:stage}-queue"
+    - Effect: "Allow"
+      Action:
+        - "*"
+      Resource:
+       - "arn:aws:dynamodb:us-east-1:*:table/open-bot-${opt:stage}-schedule"
+       - "arn:aws:dynamodb:us-east-1:*:table/open-bot-${opt:stage}-schedule/index/*"
 
 plugins:
   - serverless-offline
@@ -62,6 +68,17 @@ functions:
           path: github
           method: POST
           timeout: 20
+  processScheduledTasks:
+    handler: handlers.processScheduledTasks
+    timeout: 300
+    package:
+      include:
+        - lib/open-bot-process-scheduled-tasks/**
+        - config.json
+    environment:
+      STAGE: "${opt:stage}"
+    events:
+      - schedule: rate(10 minutes)
 resources:
   Resources:
     QueueDynamoDbTable:
@@ -82,5 +99,42 @@ resources:
         StreamSpecification:
           StreamViewType: NEW_IMAGE
         TableName: "open-bot-${opt:stage}-queue"
+    ScheduleDynamoDbTable:
+      Type: "AWS::DynamoDB::Table"
+      DeletionPolicy: Delete
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: item
+            AttributeType: S
+          -
+            AttributeName: epoch
+            AttributeType: N
+          -
+            AttributeName: schedule
+            AttributeType: N
+        KeySchema:
+          -
+            AttributeName: item
+            KeyType: HASH
+        GlobalSecondaryIndexes:
+          -
+            IndexName: schedule-index
+            KeySchema:
+              -
+                AttributeName: epoch
+                KeyType: HASH
+              -
+                AttributeName: schedule
+                KeyType: RANGE
+            ProvisionedThroughput:
+              ReadCapacityUnits: 1
+              WriteCapacityUnits: 1
+            Projection:
+              ProjectionType: ALL
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: "open-bot-${opt:stage}-schedule"
 
 

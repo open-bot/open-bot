@@ -1,0 +1,9 @@
+{
+  "name": "open-bot-process-scheduled-tasks",
+  "private": true,
+  "version": "0.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.34.0"
+  }
+}
