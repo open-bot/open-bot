@@ -250,9 +250,12 @@ last_action_age:
   maximum: 10m # 10 seconds - 10 minutes
   minimumDate: 2016-01-01
   maximumDate: 2016-12-31
+  includeBotActions: true
 ```
 
 Matches if the last action age is in the range.
+
+`includeBotActions` defaults to false, which excludes actions from the bot itself (only user actions).
 
 ### ensure
 
@@ -416,6 +419,24 @@ status:
 ```
 
 Reports a pull request status.
+
+### set
+
+``` yaml
+set:
+  id: SOME_VARIABLE_NAME
+  value: "{{comment.body}}"
+```
+
+Sets a variable name to some value. This variable is also available in rules followed by this rule. Best read this variable with the `ensure` filter.
+
+### schedule
+
+``` yaml
+schedule: 2d # 2 days
+```
+
+Schedule another rules check in the specified timespan. The lowest schedule wins and overwrite any longer schedule.
 
 ## Range
 
