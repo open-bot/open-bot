@@ -43,6 +43,7 @@ functions:
       include:
         - lib/open-bot-process-tasks/**
         - lib/open-bot/**
+        - lib/open-bot-scheduler/**
         - config.json
     environment:
       STAGE: "${opt:stage}"
