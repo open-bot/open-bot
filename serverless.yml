@@ -32,6 +32,7 @@ package:
   exclude:
     - '**'
   include:
+    - lib/node_modules/**
     - handlers.js
 
 functions:
