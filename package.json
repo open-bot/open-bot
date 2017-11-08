@@ -23,6 +23,7 @@
     "mkdirp": "^0.5.1",
     "promise-queue": "^2.2.3",
     "prompt": "^1.0.0",
+    "request": "^2.83.0",
     "serverless": "^1.9.0",
     "serverless-offline": "^3.13.1",
     "sync-exec": "^0.6.2"
