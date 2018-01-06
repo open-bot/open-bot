@@ -29,7 +29,7 @@ This means: It makes sure that actions runs once **after** filters match. If fil
 * Run `node open-bot configurate` and answer questions
 * Run `yarn run deploy-prod` to deploy the bot (takes a while)
   * Note you need to have AWS CLI tools installed and configured. See http://docs.aws.amazon.com/cli/latest/userguide/installing.html
-* Run `node open-bot` to gain access to the other tools, i. e. batch processing
+* Run `node ./open-bot` to gain access to the other tools, i. e. batch processing
 
 ## Contributing
 
