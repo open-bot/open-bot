@@ -1,6 +1,6 @@
 # open-bot
 
-An unoptionated bot driven by a configuration file in the repository.
+An unopinionated bot driven by a configuration file in the repository.
 
 * Operates on issue/PRs
 * Triggered by webhook event or manual batch processing (CLI)
