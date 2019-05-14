@@ -420,6 +420,17 @@ status:
 
 Reports a pull request status.
 
+### merge
+
+``` yaml
+merge:
+  commit_title: "Merge pull request #{{pull_request.number}}"
+  commit_message: "{{pull_request.title}}"
+  merge_method: merge # one of merge, squash, rebase
+```
+
+Merges a PR. Like pressing the merge button.
+
 ### set
 
 ``` yaml
