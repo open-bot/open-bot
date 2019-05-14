@@ -8,6 +8,7 @@ provider:
   memorySize: 256
   stage: dev
   region: us-east-1
+  logRetentionInDays: 14
   iamRoleStatements:
     - Effect: "Allow"
       Resource: "*"
