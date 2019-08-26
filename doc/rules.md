@@ -565,12 +565,12 @@ Label pull request with `ci-ok` or `ci-not-ok` depending on the CI result. Also 
         issue_2: Expected
         issue_3: Current
   actions:
-    label: missing-infomation
+    label: missing-information
     close: true
     comment: Closed because information is missing. Edit the issue!
 - filters:
     open: false
-    label: missing-infomation
+    label: missing-information
     threshold:
       minimum: 2
       filters:
@@ -579,7 +579,7 @@ Label pull request with `ci-ok` or `ci-not-ok` depending on the CI result. Also 
         issue_3: Current
   actions:
     label:
-      remove: missing-infomation
+      remove: missing-information
     reopen: true
     comment: Thanks!
 ```
