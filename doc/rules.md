@@ -186,7 +186,7 @@ status: ab?c # PR status message
 ```
 
 ``` yaml
-status: 
+status:
   matching: ab?c # PR status message
   state: ab?c # status state (success, failure, error, pending)
   context: ab?c # status context
@@ -532,7 +532,7 @@ Respond to any comment containing "Hello" with a comment "Hello @user.".
       remove: "ci-not-ok"
     comment: # post comment
       identifier: "ci-result"
-      readd: true
+      edit: true
       message: |-
         Success! :smile:
 - filters:
@@ -548,7 +548,7 @@ Respond to any comment containing "Hello" with a comment "Hello @user.".
       remove: "ci-ok"
     comment:
       identifier: "ci-result"
-      readd: true
+      edit: true
       message: |-
         Failed. @{{issue.user.login}} Check [CI results]({{status.target_url}})!
 ```
