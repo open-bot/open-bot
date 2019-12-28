@@ -17,7 +17,7 @@
     "clone": "^2.1.1",
     "duration-js": "^3.9.2",
     "github": "^9.2.0",
-    "handlebars": "^4.0.6",
+    "handlebars": "^4.3.0",
     "js-yaml": "^3.8.2",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
