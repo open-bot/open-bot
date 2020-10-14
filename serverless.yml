@@ -4,7 +4,7 @@ service: open-bot-v1
 
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs12.x
   memorySize: 256
   stage: dev
   region: us-east-1
