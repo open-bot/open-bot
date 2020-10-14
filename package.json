@@ -19,7 +19,7 @@
     "github": "^9.2.0",
     "handlebars": "^4.5.3",
     "js-yaml": "^3.8.2",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.3",
     "mkdirp": "^0.5.1",
     "promise-queue": "^2.2.3",
     "prompt": "^1.0.0",
