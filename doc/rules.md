@@ -192,6 +192,21 @@ status:
   context: ab?c # status context
 ```
 
+### check
+
+``` yaml
+check: ab?c # PR check message
+```
+
+``` yaml
+check:
+  matching: ab?c # PR check message
+  conclusion: ab?c # check conclusion (success, failure)
+  name: ab?c # check context
+```
+
+Matches pull request check.
+
 ### permission
 
 ``` yaml
