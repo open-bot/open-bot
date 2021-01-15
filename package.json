@@ -18,7 +18,7 @@
     "clone": "^2.1.1",
     "duration-js": "^3.9.2",
     "handlebars": "^4.5.3",
-    "js-yaml": "^3.8.2",
+    "js-yaml": "^3.13.1",
     "minimist": "^1.2.5",
     "mkdirp": "^0.5.1",
     "promise-queue": "^2.2.3",
