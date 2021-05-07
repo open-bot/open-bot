@@ -7,7 +7,7 @@
     "@octokit/rest": "^18.0.12",
     "clone": "^2.1.1",
     "duration-js": "^3.9.2",
-    "handlebars": "^4.5.3",
+    "handlebars": "^4.7.7",
     "js-yaml": "^3.8.2",
     "mkdirp": "^0.5.1",
     "promise-queue": "^2.2.3",
