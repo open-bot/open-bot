@@ -510,7 +510,7 @@ Example:
       Hello World provided by @{{comment_1.actor.login}} and @{{comment_2.actor.login}}.
 ```
 
-Note: every filter/action key can be prefixed with `_(number)` to make them unique.
+Note: every filter/action key can be suffixed with `_(number)` to make them unique.
 
 Note: you can add a `id` property to assign the value to some other name.
 
