@@ -4,6 +4,6 @@
   "version": "0.0.0",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.95.0"
+    "aws-sdk": "^2.814.0"
   }
 }
